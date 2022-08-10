@@ -28,7 +28,7 @@ int execute(char **arguments)
 	}
 	else
 	{
-		wait(&stat)
+		wait(&stat);
 	}
 	exe_stat = WEXITSTATUS(stat);
 	return (exe_stat);

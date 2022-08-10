@@ -14,8 +14,8 @@ char *concat_command(char *dir_str, char *command)
 
 	if (dir_str == NULL || command == NULL)
 		return (NULL);
-	len1 = _strlen(dir_str);
-	len2 = _strlen(command);
+	len1 = strleng(dir_str);
+	len2 = strleng(command);
 	command_path = malloc(len1 + len2 + 2);
 	if (command_path == NULL)
 		return (NULL);
@@ -25,13 +25,13 @@ char *concat_command(char *dir_str, char *command)
 	}
 	if (dir_str[i - 1] != '/')
 	{
-		command_path[í] = '/';
+		command_path[i] = '/';
 	}
 	while  (command[j] != '\0')
 	{
-		command_path[a + b] = command[b];
-		b++;
+		command_path[i + j] = command[j];
+		j++;
 	}
-	command_path[a + b] = '\0';
+	command_path[i + j] = '\0';
 	return (command_path);
 }

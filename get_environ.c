@@ -14,20 +14,20 @@ char *get_environ(char *global_var)
 	{
 		if (environ == NULL)
 			return (NULL);
-		envdup = _strdup(environ[i]);
+		envdup = strdupl(environ[i]);
 		while (envdup != NULL)
 		{
 			env_tok = strtok(envdup, cutter);
-			if (_strcmp(env_tok, global_var) == 0)
+			if (strcmpr(env_tok, global_var) == 0)
 			{
 				env_tok = strtok(NULL, cutter);
-				env_tok_dup = _strdup(env_tok);
+				env_tok_dup = strdupl(env_tok);
 				free(envdup);
 				return (env_tok_dup);
 			}
 			i++;
 			free(envdup);
-			envdup = _strdup(environ[i]);
+			envdup = strdupl(environ[i]);
 		}
 	}
 	return (NULL);

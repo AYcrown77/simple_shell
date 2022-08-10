@@ -9,16 +9,16 @@ int main(void)
 	ssize_t bytes_rd = 0;
 	size_t bf_size = 0;
 	char *entry = NULL, *arguments[20];
-	int counter = 1, vf_stat = 0, exist_stat = 0, blt_stat = 0;
+	int counter = 1, vf_stat = 0, exist_stat = 0, blt_stat = 0, exit_stat;
 
-	d_prompt("$ " 2);
+	d_prompt("$ ", 2);
 	bytes_rd = getline(&entry, &bf_size, stdin);
 	while (bytes_rd != -1)
 	{
 		if (*entry != '\n')
 		{
 			tokens(entry, arguments);
-			if (argument[0] != NULL)
+			if (arguments[0] != NULL)
 			{
 				exist_stat = verify_file(arguments[0]);
 				if (exist_stat != 0)

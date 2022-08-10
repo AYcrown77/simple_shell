@@ -10,10 +10,10 @@
 
 int cmd_not_found(char **arg, int count)
 {
-	char *imode_shellname = "vsh";
-	char *non_imode_shellname = "./vsh";
+	char *imode_shellname = "hsh";
+	char *non_imode_shellname = "./hsh";
 
-	if (isatty(stdin_fileno))
+	if (isatty(STDIN_FILENO))
 		write(2, imode_shellname, 3);
 	else
 	{
@@ -22,7 +22,7 @@ int cmd_not_found(char **arg, int count)
 	write(2, ": ", 2);
 	print_num(count);
 	write(2, ": ", 2);
-	write(2, arg[0], _strlen(arg[0]));
+	write(2, arg[0], strleng(arg[0]));
 	write(2, ": not found\n", 12);
 	return (127);
 }
