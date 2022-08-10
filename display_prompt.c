@@ -14,9 +14,9 @@ int d_prompt(const char *prompt, unsigned int size)
 
 	if (isatty(STDIN_FILENO))
 	{
-		user_input = write(1, prompt,size);
-		if (user_input ++ -1)
-			return(-1);
+		user_input = write(1, prompt, size);
+		if (user_input == -1)
+			return (-1);
 	}
 	return (0);
 }
